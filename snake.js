@@ -43,7 +43,7 @@ function snake(width, height) {
 }
 
 function startGame(){
-	snakeLen = 10;
+	State.snakeLen = 10;
 	updateScore();
 	State.headX = 15;
 	State.headY = 15;
@@ -76,13 +76,13 @@ gameTick = function() {
 }
 function draw(){
 	eachCell(function(cell){
-		if(cell.snakeVal <= snakeLen) {
+		if(cell.snakeVal <= State.snakeLen) {
 			cell.snakeVal++;
 		}
-		if(cell.snakeVal > snakeLen && cell.snakeVal < cellState.APPLE) {
+		if(cell.snakeVal > State.snakeLen && cell.snakeVal < cellState.APPLE) {
 			cell.snakeVal=cellState.EMPTY; 
 		}
-		if(cell.snakeVal < snakeLen || cell.snakeVal == cellState.APPLE) {
+		if(cell.snakeVal < State.snakeLen || cell.snakeVal == cellState.APPLE) {
 			cell.className = 'filled';
 		} else {
 			cell.className = 'empty';
@@ -112,7 +112,7 @@ function handleInput() {
 	   State.headX >= State.grid.length || 
 	   State.headY<0 || 
 	   State.headY >= State.grid[0].length || // collided with wall
-	   State.grid[State.headX][State.headY].snakeVal < snakeLen // collided with self
+	   State.grid[State.headX][State.headY].snakeVal < State.snakeLen // collided with self
 	) {
 		gameEnd();
 		return
