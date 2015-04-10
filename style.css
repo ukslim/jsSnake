@@ -1,0 +1,29 @@
+@CHARSET "ISO-8859-1";
+
+table.playarea {
+	border: solid;
+	border-spacing: 0;
+	float: left;
+}
+
+table.playarea td {
+	border: solid;
+	border-color: lightgrey;
+	border-width: 1px;
+	height: 15px;
+	width: 15px;
+	margin: 0;
+}
+
+table.playarea td.filled {
+	background-color: black;
+	border-color: black;
+}
+
+table.dead td {
+	border-color: red;
+}
+
+div.instructions {
+	float: left;
+}
